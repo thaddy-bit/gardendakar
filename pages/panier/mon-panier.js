@@ -1,3 +1,5 @@
+/*
+
 import { useState, useEffect } from 'react';
 import { getSession } from 'next-auth/react';
 import { useSession } from 'next-auth/react';
@@ -114,7 +116,7 @@ export default function Panier() {
                   <p>Quantité: {item.quantite}</p>
                 </div>
                 <div className='fex'>
-                  {/* Panier */}
+                  
                 <Link href="" onClick={() => removeFromCart(item.produit_id)} className="relative">
                   <Delete className="w-8 h-8 text-red-500 hover:text-red-400" />
                 </Link>
@@ -129,7 +131,7 @@ export default function Panier() {
                   total + ( item.prix * item.quantite), 0).toFixed(0)}
               </p>
               <div>
-                {/* Formulaire de rendez-vous */}
+                
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className='flex space-x-3 lg:space-x-8 mb-5'>
                     <div>
@@ -202,6 +204,6 @@ export default function Panier() {
 
 }
 
+*/
 
 //////////////////////////
-

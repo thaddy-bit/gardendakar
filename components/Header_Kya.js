@@ -1,3 +1,4 @@
+/*
 'use client';
 
 import { useState } from 'react';
@@ -24,10 +25,10 @@ export default function Header() {
       <nav className="top-0 left-0 w-full bg-gray-200 shadow-md z-50">
         <div className="mx-auto px-4 sm:px-6 lg:px-8 p-5">
           <div className="flex justify-between w-full items-center h-16">
-            {/* Logo */}
+            
             <div className="text-black text-xl font-bold">KYAKIFESTYLE</div>
             
-            {/* Desktop Menu */}
+            
             <div className="hidden md:flex space-x-6 items-center">
               <Link href="/Home" className="text-black hover:text-gray-400 transition duration-400">Accueil</Link>
               
@@ -76,7 +77,7 @@ export default function Header() {
 
               <Link href="/Wellness" className="text-black hover:text-gray-400 transition duration-400">Garden</Link>
               
-              {/* Panier */}
+              
               <Link href="#" className="relative">
                 <ShoppingCart className="w-6 h-6 text-black"/>
                 {cartCount > 0 && (
@@ -87,14 +88,14 @@ export default function Header() {
               </Link>
             </div>
             
-            {/* Mobile Menu Button */}
+            
             <button className="md:hidden" onClick={() => setIsOpen(!isOpen)}>
               {isOpen ? <X className="w-6 h-6 text-white" /> : <Menu className="w-6 h-6 text-white" />}
             </button>
           </div>
         </div>
         
-        {/* Mobile Menu */}
+        
         {isOpen && (
           <div className="md:hidden bg-white shadow-md w-full py-4">
             <Link href="/Home" className="block px-4 py-2 hover:bg-gray-100">Accueil</Link>
@@ -124,3 +125,5 @@ export default function Header() {
     </>
   );
 }
+
+*/

@@ -4,8 +4,8 @@ import { useState, useEffect } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import { Menu, X, ChevronDown, ShoppingCart, User } from 'lucide-react';
-import { useRouter } from 'next/router';
-import { useContext } from "react";
+// import { useRouter } from 'next/router';
+// import { useContext } from "react";
 // import { CartContext } from "../context/CartContext";
 // import { useSession } from "next-auth/react";
 
@@ -16,9 +16,9 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [categories, setCategories] = useState([]);
-  const [panier, setPanier] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [totalProduits, setTotalProduits] = useState(0); // Nouveau : total des produits
+  // const [panier, setPanier] = useState([]);
+  // const [loading, setLoading] = useState(true);
+  // const [totalProduits, setTotalProduits] = useState(0); // Nouveau : total des produits
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [estOuvert, setEstOuvert] = useState(false);
   
@@ -109,7 +109,7 @@ export default function Header() {
                       </div>
                     </div>
                   )}
-                </div>
+              </div>
 
               <Link href="/Wellness" className="text-white hover:text-gray-400 transition duration-400">💆‍♂️ Wellness</Link>
               <Link href="https://www.bakerynsweets.com/Store/" className="text-white hover:text-gray-400 transition duration-400" target='blank'>🎂 Patisserie</Link>

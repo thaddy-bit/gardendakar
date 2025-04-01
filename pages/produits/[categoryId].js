@@ -15,14 +15,14 @@ export default function CategoryProducts() {
   const [categoryName, setCategoryName] = useState("Loading..."); // Store category name
   const [categoryDescription, setCategoryDescription] = useState(""); // Store category name
   const [loading, setLoading] = useState(true); // Track loading state
-  const [error, setError] = useState(null); // Handle errors
+  // const [error, setError] = useState(null); // Handle errors
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [favorites, setFavorites] = useState([]); // État pour les favoris
   const [likes, setLikes] = useState([]); // État pour les likes
   const [quantite, setQuantite] = useState(1);
-  const [message, setMessage] = useState('');
-  const [productId, setProductId] = useState('');
+  // const [message, setMessage] = useState('');
+  // const [productId, setProductId] = useState('');
   const [user, setUser] = useState(null);
   // // Vérifie si l'utilisateur est connecté
 

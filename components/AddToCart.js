@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import Router from 'next/router';
 
 export default function AddToCart({ produitId, clientId }) {
   const [quantite, setQuantite] = useState(1);

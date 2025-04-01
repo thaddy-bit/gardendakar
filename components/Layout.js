@@ -1,7 +1,7 @@
 // components/Layout.js
 import Header from './Header';
 import Footer from './Footer';
-import { AuthProvider } from "../context/AuthContext";
+// import { AuthProvider } from "../context/AuthContext";
 
 export default function Layout({ children }) {
   return (
