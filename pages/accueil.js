@@ -20,20 +20,26 @@ export default function Acceuil() {
                     <h1 className="text-justify">
                       est une Boutique Electrique qui présente une sélection pointue de créateurs Africains et internationaux.
                       Nous concoctons une sélection simple et harmonieuse de designers, afin de combler les besoins et les désirs de nos clients.
-                      la plupart d'entre eux sont distribués de façon exclusive dans des concepts store réputés dans le monde : ils représentent l'avant-garde de la mode, et nous souhaitons leur offrir un espace d'expression plus important.
+                      la plupart d entre eux sont distribués de façon exclusive dans des concepts store reputes dans le monde : ils représentent lavant-garde de la mode, et nous souhaitons leur offrir un espace dexpression plus important.
                       Nous privilégions surtout les créateurs ayant un historique humain, positif et tendance.
-                      La mise en avant des designers africains est une priorité pour le Garden Concept Store, par le biais de collaborations et d'échanges culturels.
+                      La mise en avant des designers africains est une priorité pour le Garden Concept Store, par le biais de collaborations et déchanges culturels.
                       Notre objectif reste de fidéliser notre clientèle en leur proposant des produits exclusifs et authentiques.
                       Mais aussi construire et agrandir notre communauté en leur présentant du contenu moderne et de qualité.
-                      Une superficie globale exploitée de 800 m2, repartie sur (04) niveaux, respectant l'intimité de chaque client.
+                      Une superficie globale exploitée de 800 m2, repartie sur (04) niveaux, respectant lintimité de chaque client.
                       Une équipe de plus de 20 personnes font tourner votre petite bulle, ceci tous les jours à partir de 10h.
                       Nous souhaitons bâtir avec vous une relation de confiance.
-                      L'harmonie intérieure et le ressourcement vont bien plus loin que vous ne l'imaginez.
+                      Lharmonie intérieure et le ressourcement vont bien plus loin que vous ne limaginez.
                       Notre satisfaction est votre sourire.
                     </h1>
                   </div>
-                  <div className="p-4 h-96 md:h-[500px]">
-                  <img src="/images/i3.jpg" alt="Hero Image 1" className="w-full h-full object-cover" />
+                  <div className="p-4 h-96 md:h-[600px]">
+                  <Image
+                  src="/images/kya2.jpg"
+                  alt="Hero Image 1"
+                  width={3000}
+                  height={1000}
+                  className="w-full h-full object-cover"
+                  />
                   </div>
                 </div>
               </section>

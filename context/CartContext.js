@@ -7,6 +7,7 @@ export const CartProvider = ({ children }) => {
   const [cartCount, setCartCount] = useState(0);
 
   // Charger le nombre d'articles au chargement
+  /*
   useEffect(() => {
     const fetchCartCount = async () => {
       try {
@@ -20,6 +21,8 @@ export const CartProvider = ({ children }) => {
 
     fetchCartCount();
   }, []);
+
+  */
 
   return (
     <CartContext.Provider value={{ cartCount, setCartCount }}>

@@ -1,6 +1,5 @@
 import AddClientForm from '../../components/AddClientForm';
 import Layout from '../../components/Layout';
-import Head from 'next/head';
 
 export default function AddClientPage() {
   return (

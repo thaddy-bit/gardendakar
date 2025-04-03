@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+// import React, { useState } from 'react';
 import Layout from '../components/Layout';
+import Image from 'next/image';
 
 
 const products = [
@@ -115,14 +116,15 @@ const products = [
 
 
 export default function Magazine() {
-  const [selectedProduct, setSelectedProduct] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [selectedProduct, setSelectedProduct] = useState(null);
+  // const [isModalOpen, setIsModalOpen] = useState(false);
 
+/*
   const handleAddToCart = (product) => {
     setSelectedProduct(product);
     setIsModalOpen(true);
   };
-
+*/
   const titre = "Magazine";
 
   return (
@@ -137,7 +139,9 @@ export default function Magazine() {
           {products.map((product) => (
             <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
               <div className="relative">
-                <img
+                <Image
+                  width={3000} 
+                  height={1000}
                   src={product.image}
                   alt={product.name}
                   className="w-full h-64 object-cover"

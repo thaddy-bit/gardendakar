@@ -4,7 +4,7 @@ import Footer from './Footer';
 
 export default function Master({ children }) {
   return (
-    <div className="">
+    <div className="bg-white">
       <Header_Kya />
       <main className="">
         {children}

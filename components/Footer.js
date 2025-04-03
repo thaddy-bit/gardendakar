@@ -14,7 +14,12 @@ export default function Footer() {
           {/* Colonne 1 - Informations */}
           <div>
             <div className="flex justify-center space-x-2">
-              <Image src="/images/dhl.png" width={50} height={30} alt="DHL" />
+              <Image 
+              src="/images/dhl.png" 
+              width={50} 
+              height={50}
+              alt="DHL" 
+              />
               <Image src="/images/fedex.png" width={50} height={30} alt="FedEx" />
               <Image src="/images/ups.png" width={50} height={30} alt="UPS" />
             </div>

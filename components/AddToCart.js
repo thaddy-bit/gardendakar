@@ -1,9 +1,9 @@
 import { useState } from 'react';
 
 export default function AddToCart({ produitId, clientId }) {
-  const [quantite, setQuantite] = useState(1);
+  // const [quantite, setQuantite] = useState(1);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  // const [message, setMessage] = useState('');
 
   const handleAddToCart = async () => {
     setLoading(true);

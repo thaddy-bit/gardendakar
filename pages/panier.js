@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Layout from '../components/Layout';
-import { Delete } from 'lucide-react';
+// import { Delete } from 'lucide-react';
 import { useContext } from "react";
 import { CartContext } from "../context/CartContext";
-import { ShoppingCart, Ticket, CreditCard } from 'lucide-react';
+import { ShoppingCart, Ticket, CreditCard, Delete, deleteCart  } from 'lucide-react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 // import { ShoppingCartIcon, TicketIcon } from '@heroicons/react/24/outline';
 // import { CreditCardIcon, DevicePhoneMobileIcon, CurrencyDollarIcon } from '@heroicons/react/24/solid';
@@ -137,7 +138,9 @@ export default function Panier() {
                     <div className="flex flex-col sm:flex-row">
 
                       <div className="flex-shrink-0 mb-4 sm:mb-0">
-                        <img
+                        <Image
+                          width={3000} 
+                          height={1000}
                           className="w-20 h-20 rounded-md object-cover"
                           src={item.image_url} 
                           alt={item.nom}
@@ -161,7 +164,7 @@ export default function Panier() {
                             className="text-red-600 hover:text-red-800 text-sm font-medium"
                             onClick={() => removeFromCart(item.produit_id)}
                           >
-                            Supprimer
+                            <Delete className="h-8 w-6 mr-2 text-red-500 hover:text-red-700"/>
                           </button>
                         </div>
                       </div>

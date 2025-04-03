@@ -1,5 +1,6 @@
 // pages/categories/[categoryId].js
 import Layout from '../../components/Layout';
+import Image from 'next/image';
 
 import Link from 'next/link'; // Pour gérer les liens
 import { useRouter } from "next/router";
@@ -20,7 +21,7 @@ export default function CategoryProducts() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [favorites, setFavorites] = useState([]); // État pour les favoris
   const [likes, setLikes] = useState([]); // État pour les likes
-  const [quantite, setQuantite] = useState(1);
+  // const [quantite, setQuantite] = useState(1);
   // const [message, setMessage] = useState('');
   // const [productId, setProductId] = useState('');
   const [user, setUser] = useState(null);
@@ -41,16 +42,6 @@ export default function CategoryProducts() {
       fetchUser();
     }, []);
  
-    
-    const rafraichirPanier = async () => {
-      try {
-        const res = await fetch("/api/panier/count");
-        const data = await res.json();
-        setCartCount(data.total || 0);
-      } catch (error) {
-        console.error("Erreur lors de la mise à jour du panier :", error);
-      }
-    };
 
     // Fonction pour ajouter un produit au panier avec une quantité
   const ajouterAuPanier = async (produit) => {
@@ -67,7 +58,7 @@ export default function CategoryProducts() {
 
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
-      rafraichirPanier(); // Met à jour le compteur
+      // rafraichirPanier(); // Met à jour le compteur
       // setQuantiteTotale((prev) => prev + 1); // Mettre à jour la quantité affichée
 
       alert(data.message); // Affiche le message de succès
@@ -87,13 +78,13 @@ export default function CategoryProducts() {
     setSelectedProduct(null);
     setQuantity(1);
   };
-
+/*
   const handleSubmit = (e) => {
     e.preventDefault();
     alert(`Rendez-vous confirmé pour ${formData.name} le ${formData.date} à ${formData.time}.`);
     closeModal();
   };
-
+*/
   const handleFavorite = (productId) => {
     if (favorites.includes(productId)) {
       setFavorites(favorites.filter((id) => id !== productId)); // Retirer des favoris
@@ -177,7 +168,9 @@ export default function CategoryProducts() {
                         <div className="relative">
                           <div>
                             <Link href="#" onClick={() => handleAddToCart(product)}>
-                              <img
+                              <Image
+                                width={3000} 
+                                height={1000}
                                 src={product.image_url}
                                 alt={product.nom}
                                 className="w-full h-64 object-cover"
@@ -285,7 +278,9 @@ export default function CategoryProducts() {
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
           <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-2">
                 <div>
-                    <img
+                    <Image
+                    width={3000} 
+                    height={1000}
                     src={selectedProduct.image_url}
                     alt={selectedProduct.nom}
                     className="w-full h-60 object-cover mb-4"

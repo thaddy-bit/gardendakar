@@ -1,7 +1,7 @@
 import multer from "multer";
 import mysql from "mysql2/promise";
 import path from "path";
-import fs from "fs";
+// import fs from "fs";
 
 // Configuration de multer pour enregistrer les images
 const upload = multer({

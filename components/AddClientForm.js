@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function AddClientForm() {
-  const router = useRouter();
+  // const router = useRouter();
   const [formData, setFormData] = useState({
     nom: '',
     prenom: '',

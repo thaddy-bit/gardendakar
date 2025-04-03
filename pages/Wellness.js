@@ -1,7 +1,8 @@
 import Layout from '../components/Layout';
-import Link from 'next/link';
+// import Link from 'next/link';
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+import Image from 'next/image';
 
 
   const titre = "Wellness";
@@ -79,7 +80,7 @@ export default function Wellness() {
                 
                     <h2 className="text-justify mb-8 mt-8">
                     Lorem Ipsum is simply dummy text of the printing and typesetting 
-                    industry. Lorem Ipsum has been the industry's standard dummy text 
+                    industry. Lorem Ipsum has been the industrys standard dummy text 
                     ever since the 1500s, when an unknown printer took a galley of type 
                     and scrambled it to make a type specimen book. It has survived not 
                     only five centuries, but also the leap into electronic typesetting, 
@@ -93,9 +94,11 @@ export default function Wellness() {
                     {products.map((product) => (
                     <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                     <div className="relative">
-                        <img
+                        <Image
                         src={product.image_url}
                         alt={product.nom}
+                        width={3000} 
+                        height={1000}
                         className="w-full h-64 object-cover"
                         />
                     </div>
@@ -122,9 +125,11 @@ export default function Wellness() {
           <div className='lg:flex space-x-5'>
           <div className='flex w-full'>
               <div>
-                  <img
+                  <Image
                   src={selectedProduct.image_url}
                   alt={selectedProduct.nom}
+                  width={3000} 
+                  height={1000}
                   className="w-500 lg:w-300 h-50 object-cover mb-4"
                   />
               </div>

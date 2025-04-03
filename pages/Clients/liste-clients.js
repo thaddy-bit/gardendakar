@@ -32,17 +32,6 @@ export default function Clients() {
       .then(data => setClients(data));
   };
 
-  const handleDelete = async (id) => {
-    if (window.confirm("Êtes-vous sûr de vouloir supprimer ce client ?")) {
-      await fetch('/api/clients/clients', {
-        method: 'DELETE',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ id })
-      });
-      setClients(clients.filter(client => client.id !== id));
-    }
-  };
-
   return (
     <div className="p-6">
       <h1 className="text-2xl font-bold mb-4">Liste des Clients</h1>

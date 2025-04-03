@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from "react"; // Import du state pour gérer le formulaire
+import { useState } from "react"; // Import du state pour gérer le formulaire
 import { useRouter } from "next/router"; // Import du router pour rediriger après l'inscription
 import Layout from '../components/Layout';
 //import { useRouter } from 'next/navigation';

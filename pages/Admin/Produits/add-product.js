@@ -47,20 +47,20 @@ export default function AjouterProduit() {
   return (
     <Layout>
         <form onSubmit={handleSubmit} className="p-4 max-w-md mx-auto space-y-4">
-        <input type="text" name="nom" placeholder="Nom" onChange={handleChange} required />
-        <textarea name="description" placeholder="Description" onChange={handleChange} required />
-        <input type="number" name="prix" placeholder="Prix" onChange={handleChange} required />
-        <input type="number" name="quantite" placeholder="Quantité" onChange={handleChange} required />
-        <input type="number" name="categorie_id" placeholder="ID Catégorie" onChange={handleChange} required />
-        <input type="number" name="sous_categorie_id" placeholder="ID Sous-Catégorie" onChange={handleChange} required />
-        <input type="number" name="rating" placeholder="Note (ex: 4.5)" step="0.1" onChange={handleChange} />
-        <input type="text" name="reviews" placeholder="Avis" onChange={handleChange} />
-        <select name="isNew" onChange={handleChange} required>
+        <input type="text" name="nom" className='border w-full' placeholder="Nom" onChange={handleChange} required />
+        <textarea name="description" className='border w-full' placeholder="Description" onChange={handleChange} required />
+        <input type="number" name="prix" className='border w-full' placeholder="Prix" onChange={handleChange} required />
+        <input type="number" name="quantite" className='border w-full' placeholder="Quantité" onChange={handleChange} required />
+        <input type="number" name="categorie_id" className='border w-full' placeholder="ID Catégorie" onChange={handleChange} required />
+        <input type="number" name="sous_categorie_id" className='border w-full' placeholder="ID Sous-Catégorie" onChange={handleChange} required />
+        <input type="number" name="rating" className='border w-full' placeholder="Note (ex: 4.5)" step="0.1" onChange={handleChange} />
+        <input type="text" name="reviews" className='border w-full' placeholder="Avis" onChange={handleChange} />
+        <select name="isNew" className='border w-full' onChange={handleChange} required>
             <option value="">Nouveau produit ?</option>
             <option value="1">Oui</option>
             <option value="0">Non</option>
         </select>
-        <input type="file" onChange={handleImageChange} required />
+        <input type="file" className='border w-full' onChange={handleImageChange} required />
         <button type="submit">Ajouter Produit</button>
         </form>
     </Layout>
