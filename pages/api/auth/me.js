@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 import cookie from "cookie";
-import pool from "../../../lib/db"; // Connexion MySQL
+// import pool from "../../../lib/db"; // Connexion MySQL
+import { pool } from '@/lib/db';
 
 export default async function handler(req, res) {
   if (req.method !== "GET") {
@@ -9,13 +10,13 @@ export default async function handler(req, res) {
 
   // Vérifier si req.headers.cookie existe avant de le parser
   const cookies = req.headers.cookie ? cookie.parse(req.headers.cookie) : {};
-  console.log("Cookies:", cookies); // Ajout de logs pour le débogage
+  // console.log("Cookies:", cookies); // Ajout de logs pour le débogage
 
-  console.log("Cookies reçus en production:", req.headers.cookie);
+  // console.log("Cookies reçus en production:", req.headers.cookie);
 
 
   const token = cookies?.token || null;
-  console.log("Token récupéré:", token);
+  // console.log("Token récupéré:", token);
 
   if (!token) {
     return res.status(401).json({ message: "Non autorisé" });
@@ -23,10 +24,10 @@ export default async function handler(req, res) {
 
   try {
     const decoded = jwt.verify(token, "secret_key");
-    console.log("Token décodé:", decoded);
+    // console.log("Token décodé:", decoded);
 
     const [rows] = await pool.query("SELECT id, email FROM client WHERE id = ?", [decoded.id]);
-    console.log("Résultat de la requête:", rows);
+    // console.log("Résultat de la requête:", rows);
 
     if (!rows || rows.length === 0) {
       return res.status(404).json({ message: "Utilisateur non trouvé" });

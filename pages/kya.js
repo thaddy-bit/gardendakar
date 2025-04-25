@@ -1,13 +1,13 @@
-import Master from '../components/Master';
-import HeroSection from '../components/kya/HeroSection';
-import InfoSection from '../components/kya/InfoSection';
+import Layout from '../components/Layout';
+import HeroSection from '../components/HeroSection';
+import InfoSection from '../components/InfoSection';
 import NewsletterForm from '../components/NewsletterForm';
 import Image from 'next/image';
 import Link from 'next/link';
 
-export default function Kya() {
+export default function Acceuil() {
   return (
-    <Master>
+    <Layout>
         
         <HeroSection/>
 
@@ -16,7 +16,7 @@ export default function Kya() {
                 <h1 className="text-3xl text-center md:text-5xl font-bold mb-8 mt-8 pt-8 pb-8">A Propos de Nous</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 pb-8">
                   <div className="p-4">
-                  <h1 className="text-3xl md:text-2xl pb-5 font-bold">KYA LIFE STYLE</h1>
+                  <h1 className="text-3xl md:text-2xl pb-5 font-bold">Garden Concept Store</h1>
                     <h1 className="text-justify">
                       est une Boutique Electrique qui présente une sélection pointue de créateurs Africains et internationaux.
                       Nous concoctons une sélection simple et harmonieuse de designers, afin de combler les besoins et les désirs de nos clients.
@@ -105,6 +105,6 @@ export default function Kya() {
         </div>
         </footer>
       
-    </Master>
+    </Layout>
   );
 }

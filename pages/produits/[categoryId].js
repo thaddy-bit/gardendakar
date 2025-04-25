@@ -1,11 +1,11 @@
 // pages/categories/[categoryId].js
 import Layout from '../../components/Layout';
 import Image from 'next/image';
-
 import Link from 'next/link'; // Pour gérer les liens
 import { useRouter } from "next/router";
 import {useEffect, useState, useContext} from 'react';
 import { CartContext } from "../../context/CartContext";
+import toast, { Toaster } from "react-hot-toast";
 
 
 export default function CategoryProducts() {
@@ -21,11 +21,9 @@ export default function CategoryProducts() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [favorites, setFavorites] = useState([]); // État pour les favoris
   const [likes, setLikes] = useState([]); // État pour les likes
-  // const [quantite, setQuantite] = useState(1);
-  // const [message, setMessage] = useState('');
-  // const [productId, setProductId] = useState('');
+  
   const [user, setUser] = useState(null);
-  // // Vérifie si l'utilisateur est connecté
+  
 
     useEffect(() => {
       const fetchUser = async () => {
@@ -42,11 +40,12 @@ export default function CategoryProducts() {
       fetchUser();
     }, []);
  
-
     // Fonction pour ajouter un produit au panier avec une quantité
   const ajouterAuPanier = async (produit) => {
-    if (!user) return;
-        const clientId = user[0];
+    if (!user) {
+      return router.push("/login");
+    }
+        const clientId = user;
         const ID = clientId.id;
 
     try {
@@ -60,8 +59,8 @@ export default function CategoryProducts() {
       if (!res.ok) throw new Error(data.message);
       // rafraichirPanier(); // Met à jour le compteur
       // setQuantiteTotale((prev) => prev + 1); // Mettre à jour la quantité affichée
-
-      alert(data.message); // Affiche le message de succès
+      toast.success(data.message);
+      // alert(data.message); // Affiche le message de succès
     } catch (error) {
       console.error("Erreur :", error);
     }
@@ -151,9 +150,9 @@ export default function CategoryProducts() {
   return (
     <Layout>
       
-      <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-          <div className='bg-gray-200 p-2 w-full top-0 z-50'>
-            <h2 className="ml-10">Garden / Store / {categoryName}</h2>
+      <div className="bg-white py-12 px-4 sm:px-6 lg:px-8">
+          <div className='bg-gray-50 p-2 w-full top-0 z-50'>
+            <h2 className="ml-10">KYA / {categoryName}</h2>
           </div>
             <div className="max-w-7xl mx-auto">
                 
@@ -167,7 +166,7 @@ export default function CategoryProducts() {
                         
                         <div className="relative">
                           <div>
-                            <Link href="#" onClick={() => handleAddToCart(product)}>
+                            <Link href={`/detail/${product.id}`}>
                               <Image
                                 width={3000} 
                                 height={1000}
@@ -207,18 +206,17 @@ export default function CategoryProducts() {
                             ))}
                             <span className="ml-2 text-gray-600">({product.reviews} avis)</span>
                             </div>
-                            <p className="text-1xl font-bold text-gray-900 mb-4">FCFA {product.prix.toFixed(0)}</p>
+                            <p className="text-1xl font-bold text-gray-900 mb-4">FCFA {product.prix.toLocaleString('fr-FR')}</p>
                             
                             <div className='flex w-full'>
                             <button
                               onClick={() => ajouterAuPanier(product)}
                               disabled={loading}
-                              className="text-black px-1 text-sm py-2 rounded hover:bg-green-900 hover:text-white transition-colors duration-400" 
+                              className="text-black px-1 text-sm py-2 rounded hover:bg-amber-50 transition-colors duration-400" 
                             >
                               {loading ? 'Ajout...' : 'Ajouter au panier'}
                             </button>
 
-                               
 
                               {/* Boutons Favori et Like */}
                               <div className="flex ml-15 lg:ml-3 space-x-3 mb-2">
@@ -273,55 +271,6 @@ export default function CategoryProducts() {
                 </div>
             </div>
       </div>
-
-        {isModalOpen && selectedProduct && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
-          <div className="bg-white rounded-lg shadow-lg w-11/12 md:w-1/2 lg:w-1/3 p-2">
-                <div>
-                    <Image
-                    width={3000} 
-                    height={1000}
-                    src={selectedProduct.image_url}
-                    alt={selectedProduct.nom}
-                    className="w-full h-60 object-cover mb-4"
-                    />
-                </div>
-                <div className='mb-9'>
-                    <h2 className="font-bold mb-4">{selectedProduct.nom}</h2>
-                    <p className="text-gray-700 mb-4">{selectedProduct.description}</p>
-                </div>
-                <div className='flex mb-9'>
-                  <p className="font-bold text-gray-900 mb-4 mt-1">FCFA {selectedProduct.prix.toFixed(0)}</p>
-                  <div className="flex items-center ml-9 pl-9 mb-5">
-                    <button
-                      onClick={() => handleQuantityChange("decrease")}
-                      className="px-3 py-1 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors duration-300"
-                    >
-                      -
-                    </button>
-                    <span className="mx-4 text-xl font-semibold">{quantity}</span>
-                    <button
-                      onClick={() => handleQuantityChange("increase")}
-                      className="px-3 py-1 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors duration-300"
-                    >
-                      +
-                    </button>
-                </div>
-                </div>
-              
-              <div className="flex justify-end space-x-4">
-                <button
-                  type="button"
-                  onClick={closeModal}
-                  className="px-4 py-1 mt-12 bg-gray-500 text-white rounded-lg hover:bg-gray-600 transition-colors duration-300"
-                >
-                  Fermer
-                </button>
-                
-              </div>
-          </div>
-        </div>
-      )}
 
     </Layout>
   );

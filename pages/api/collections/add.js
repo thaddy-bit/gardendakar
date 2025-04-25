@@ -1,6 +1,6 @@
 import multer from "multer";
 import path from "path";
-import pool from "../../../lib/db";
+import { pool } from '@/lib/db';
 
 // Configuration de multer pour enregistrer les images
 const upload = multer({

@@ -49,9 +49,9 @@ export default function Register() {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
           {/* En-tête élégante */}
-          <div className="bg-gray-100 py-6 px-8 text-center">
-            <h1 className="text-3xl font-bold text-indigo-900">Inscription</h1>
-            <p className="mt-2 text-indigo-900">Créez votre compte professionnel</p>
+          <div className="bg-amber-50 py-6 px-8 text-center">
+            <h1 className="text-3xl font-bold text-black">Inscription</h1>
+            <p className="mt-2 text-black">Créez votre compte professionnel</p>
           </div>
 
           {/* Formulaire */}
@@ -203,7 +203,7 @@ export default function Register() {
               <button
                 type="submit"
                 disabled={isLoading}
-                className={`w-full flex justify-center items-center px-4 py-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-green-900 hover:bg-green-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-800 transition-colors ${
+                className={`w-full flex justify-center items-center px-4 py-3 border border-transparent rounded-md shadow-sm text-sm font-medium text-black bg-amber-50 hover:bg-amber-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-bg-amber-100 transition-colors ${
                   isLoading ? 'opacity-75 cursor-not-allowed' : ''
                 }`}
               >
@@ -226,7 +226,7 @@ export default function Register() {
           <div className="bg-gray-50 px-8 py-6 text-center">
             <p className="text-sm text-gray-600">
               Déjà un compte ?{' '}
-              <Link href="/login" className="font-medium text-indigo-600 hover:text-indigo-500">
+              <Link href="/login" className="font-medium text-black hover:text-indigo-500">
                 Connectez-vous
               </Link>
             </p>
@@ -236,10 +236,10 @@ export default function Register() {
         {/* Logo entreprise */}
         <div className="mt-8 text-center">
           <div className="inline-flex items-center">
-            <svg className="h-8 w-auto text-green-900" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="h-8 w-auto text-amber-200" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" />
             </svg>
-            <span className="ml-2 text-xl font-bold text-gray-900">Garden</span>
+            <span className="ml-2 text-xl font-bold text-gray-900">KYA</span>
           </div>
         </div>
       </div>

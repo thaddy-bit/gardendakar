@@ -1,4 +1,5 @@
-import pool from "../../../lib/db"; 
+// import pool from "../../../lib/db";
+import { pool } from '@/lib/db'; 
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "../auth/[...nextauth]"; // Assurez-vous que le chemin est correct
 

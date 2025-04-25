@@ -1,9 +1,9 @@
-import Accueil from '../pages/accueil';
+import Kya from './kya';
 
 export default function Home() {
   return (
     <>
-    <Accueil/>
+    <Kya/>
     </>
   )
 }

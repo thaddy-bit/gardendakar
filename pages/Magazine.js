@@ -2,7 +2,6 @@
 import Layout from '../components/Layout';
 import Image from 'next/image';
 
-
 const products = [
     {
       id: 1,
@@ -116,21 +115,13 @@ const products = [
 
 
 export default function Magazine() {
-  // const [selectedProduct, setSelectedProduct] = useState(null);
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-
-/*
-  const handleAddToCart = (product) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
-*/
+  
   const titre = "Magazine";
 
   return (
     <Layout>
 
-        <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
+    <div className="bg-gray-100 py-12 px-4 sm:px-6 lg:px-8">
                 <div className='bg-gray-200 p-2 w-full top-0 z-50 mb-8'>
                   <h2 className="ml-10">Garden  / {titre}</h2> 
                 </div>

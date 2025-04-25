@@ -1,4 +1,4 @@
-import pool from '../../../lib/db';
+import { pool } from '@/lib/db';
 import bcrypt from "bcryptjs"; // Import de bcrypt pour hasher le mot de passe
 
 export default async function handler(req, res) {
