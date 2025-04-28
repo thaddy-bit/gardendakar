@@ -1,5 +1,6 @@
 // import pool from '../../../lib/db';
-import pool from "../../../lib/db";
+// import pool from "../../../lib/db";
+import { pool } from '@/lib/db';
 import jwt from "jsonwebtoken"; // Import de JWT pour la gestion des tokens
 import bcrypt from "bcryptjs"; // Import de bcrypt pour comparer les mots de passe
 import cookie from "cookie";

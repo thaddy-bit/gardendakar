@@ -1,6 +1,7 @@
 // pages/api/products/[categoryId].js
 
-import pool from '../../../lib/db'; // Importe la connexion à la base de données
+// import pool from '../../../lib/db'; // Importe la connexion à la base de données
+import { pool } from '@/lib/db';
 
 export default async function handler(req, res) {
   const { categoryId } = req.query; // Récupère l'ID de la catégorie depuis l'URL

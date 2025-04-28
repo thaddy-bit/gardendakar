@@ -41,10 +41,6 @@ export default function Wellness() {
     setIsModalOpen(true);
     };
 
-
-    
-
-
     const [formData, setFormData] = useState({
         name: "",
         telephone: "",

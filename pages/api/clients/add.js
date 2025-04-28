@@ -1,4 +1,5 @@
-import pool from '../../../lib/db';
+// import pool from '../../../lib/db';
+import { pool } from '@/lib/db';
 import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {

@@ -1,5 +1,6 @@
 import multer from "multer";
-import mysql from "mysql2/promise";
+// import pool from "../../lib/db";
+import { pool } from '@/lib/db';
 import path from "path";
 // import fs from "fs";
 
@@ -19,14 +20,6 @@ export const config = {
     bodyParser: false, // Désactiver le bodyParser pour gérer l'upload avec multer
   },
 };
-
-// Connexion à MySQL
-const db = mysql.createPool({
-  host: "localhost",
-  user: "root",
-  password: "",
-  database: "garden",
-});
 
 export default function handler(req, res) {
   if (req.method === "POST") {
@@ -54,7 +47,7 @@ export default function handler(req, res) {
 
         // Exécuter la requête SQL
         const values = [nom, description, prix, quantite, image_url, categorie_id, sous_categorie_id, rating, reviews, isNew];
-        await db.query(query, values);
+        await pool.query(query, values);
 
         res.status(201).json({ message: "Produit ajouté avec succès" });
       } catch (error) {

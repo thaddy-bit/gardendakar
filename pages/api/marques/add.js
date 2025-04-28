@@ -1,6 +1,7 @@
 import multer from "multer";
 import path from "path";
-import pool from "../../../lib/db";
+// import pool from "../../../lib/db";
+import { pool } from '@/lib/db';
 
 // Configuration de multer pour enregistrer les images
 const upload = multer({
@@ -28,7 +29,7 @@ export default function handler(req, res) {
       }
 
       try {
-        const { nom, description } = req.body;
+        const { nom, description, zone } = req.body;
         
         // Vérifier si un fichier a été uploadé
         if (!req.file) {
@@ -40,12 +41,12 @@ export default function handler(req, res) {
 
         // Requête SQL pour insérer le produit
         const query = `
-          INSERT INTO catégorie (nom, description, image_url)
-          VALUES (?, ?, ?)
+          INSERT INTO catégorie (nom, description, image_url, zone)
+          VALUES (?, ?, ?, ?)
         `;
 
         // Exécuter la requête SQL
-        const values = [nom, description, image_url];
+        const values = [nom, description, image_url, zone];
         await pool.query(query, values);
 
         res.status(201).json({ message: "Marque ajouté avec succès" });

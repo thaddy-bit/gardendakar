@@ -1,5 +1,5 @@
 'use client';
-
+import Image from 'next/image';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import Head from 'next/head';
@@ -40,42 +40,20 @@ export default function Header() {
         <div className="mx-auto px-4 sm:px-6 lg:px-8 p-5">
           <div className="flex justify-between w-full items-center h-16">
             
-            <div className="text-black text-xl font-bold">KYAKIFESTYLE</div>
+            <div className="text-black text-xl font-bold">
+              <Image src="/images/KYA-01.png" priority alt="Hero Image 1" width={170} height={20} className="object-cover" unoptimized />
+            </div>
             
             <div className="hidden md:flex space-x-6 items-center">
-              <Link href="/kya" className="text-black hover:text-gray-400 transition duration-400">ACCUEIL</Link>
+              <Link href="/kya" className="text-black text-sm hover:text-gray-400 transition duration-400">MINDSET</Link>
+              <Link href="/marques" className="text-black text-sm hover:text-gray-400 transition duration-400">ORIGINES</Link>
+              <Link href="/kya" className="text-black text-sm hover:text-gray-400 transition duration-400">COLLABORATION</Link>
               
               <div className="relative">
-                <button className="flex items-center text-black hover:text-gray-400 transition duration-400"
-                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                >
-                  NOS COLLECTIONS <ChevronDown className="w-4 h-4 ml-1"/>
-                </button>
-                {/* Menu déroulant */}
-                {isDropdownOpen && (
-                    <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-gray-200 ring-opacity-5 focus:outline-none z-10">
-                      <div className="py-1">
-                        {zone.map((item) => (
-                          <div key={item.code_zone} className=''>
-                            <Link onClick={() => setIsDropdownOpen(false)}
-                             passHref
-                              href={`/marques/${item.id}`}
-                              className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                            >
-                              {item.nom}
-                            </Link>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-              </div>
-
-              <div className="relative">
-                <button className="flex items-center text-black hover:text-gray-400 transition duration-400"
+                <button className="flex items-center text-black text-sm hover:text-gray-400 transition duration-400"
                 onClick={() => setEstOuvert(!estOuvert)}
                 >
-                  INSPIRATION <ChevronDown className="w-4 h-4 ml-1"/>
+                  FONDATION MALIKANE <ChevronDown className="w-4 h-4 ml-1"/>
                 </button>
                 {estOuvert && (
                     <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-gray-200 ring-opacity-5 focus:outline-none z-10">
@@ -101,30 +79,16 @@ export default function Header() {
                         >
                           EN VOGUE
                         </Link>
-                      </div>
-                    </div>
-                  )}
-              </div>
-
-              <div className="relative group">
-                <button className="flex items-center text-black hover:text-gray-400 transition duration-400"
-                onClick={() => setOuvert(!ouvert)}
-                >
-                  BLOG <ChevronDown className="w-4 h-4 ml-1"/>
-                </button>
-                {ouvert && (
-                    <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-gray-200 ring-opacity-5 focus:outline-none z-10">
-                      <div className="py-1">
                         <Link
                           href="#"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-2 py-2 text-sm text-gray-700 hover:bg-gray-100"
                           onClick={() => setOuvert(false)}
                         >
                           BLOG PHOTOS
                         </Link>
                         <Link
                           href="#"
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                          className="block px-2 py-2 text-sm text-gray-700 hover:bg-gray-100"
                           onClick={() => setOuvert(false)}
                         >
                           BLOG VIDEOS
@@ -134,7 +98,7 @@ export default function Header() {
                   )}
               </div>
 
-              <Link href="/" className="text-black hover:text-gray-400 transition duration-400">GARDEN</Link>
+              <Link href="/" className="text-black hover:text-gray-400 text-sm transition duration-400">GARDEN</Link>
               
               
               <Link href="/panier" className="relative">
@@ -150,55 +114,26 @@ export default function Header() {
         
         {isOpen && (
           <div className="md:hidden bg-white shadow-md w-full py-4">
-            <Link href="/kya" className="block px-4 py-2 hover:bg-gray-100">ACCUEIL</Link>
-            
-            <div className="px-4 py-2">
-              <button onClick={() => toggleDropdown('store')} className="flex items-center w-full hover:text-gray-600">
-                NOS COLLECTIONS <ChevronDown className="w-4 h-4 ml-1" />
-              </button>
-              {dropdownOpen === 'store' && (
-                <div className="pl-4">
-                  {zone.map((item) => (
-                    <div key={item.code_zone} className=''>
-                      <Link onClick={() => setIsDropdownOpen(false)}
-                          passHref
-                          href={`/marques/${item.id}`}
-                          className="block px-4 py-2 hover:bg-gray-100"
-                        >
-                          {item.nom}
-                      </Link>
-                    </div>
-                    ))}
-                </div>
-              )}
-            </div>
-
-            <div className="px-4 py-2">
-              <button onClick={() => toggleDropdown('inspiration')} className="flex items-center w-full hover:text-gray-600">
-              INSPIRATION <ChevronDown className="w-4 h-4 ml-1" />
+            <Link href="/kya" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">MINDSET</Link>
+            <Link href="/marques" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">ORIGINES</Link>
+            <Link href="/kya" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">COLLABORATION</Link>
+      
+            <div className="px-4 py-2 items-center text-center ">
+              <button onClick={() => toggleDropdown('inspiration')} className="block px-4 py-2 text-center text-sm w-full hover:bg-gray-100">
+              FONDATION MALIKANE ⬇️
               </button>
               {dropdownOpen === 'inspiration' && (
                 <div className="pl-4">
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Nouvelle collection</Link>
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Grande occasions</Link>
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">En vogue</Link>
+                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Nouvelle collection</Link>
+                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Grande occasions</Link>
+                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">En vogue</Link>
+                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Blog Photos</Link>
+                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Blog Vidéos</Link>
                 </div>
               )}
             </div>
-
-            <div className="px-4 py-2">
-              <button onClick={() => toggleDropdown('blog')} className="flex items-center w-full hover:text-gray-600">
-              BLOG <ChevronDown className="w-4 h-4 ml-1" />
-              </button>
-              {dropdownOpen === 'blog' && (
-                <div className="pl-4">
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Blog Photos</Link>
-                  <Link href="#" className="block px-4 py-2 hover:bg-gray-100">Blog Vidéos</Link>
-                </div>
-              )}
-            </div>
-            <Link href="/" className="block px-4 py-2 hover:bg-gray-100">GARDEN</Link>
-            <Link href="/panier" className="block px-4 py-2 hover:bg-gray-100">PANIER</Link>
+            <Link href="#" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">GARDEN</Link>
+            <Link href="/panier" className="block px-4 text-center text-sm py-2 hover:bg-gray-100">PANIER</Link>
           </div>
         )}
 

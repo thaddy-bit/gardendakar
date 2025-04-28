@@ -1,5 +1,6 @@
 // pages/api/products/[categoryId].js
-import pool from '../../../lib/db'; // Importe la connexion à la base de données
+// import pool from '../../../lib/db'; // Importe la connexion à la base de données
+import { pool } from '@/lib/db';
 
 export default async function handler(req, res) {
   const { zoneId } = req.query; // Récupère l'ID de la zone depuis l'URL
@@ -8,7 +9,7 @@ export default async function handler(req, res) {
     try {
       // Requête SQL pour récupérer les produits de la catégorie spécifiée
       const [rows] = await pool.query(
-        'SELECT * FROM collections WHERE zone_id = ?',
+        'SELECT * FROM catégorie WHERE catégorie.zone = ?',
         [zoneId]
       );
       res.status(200).json(rows); // Renvoie les produits au format JSON

@@ -1,7 +1,7 @@
 // pages/api/products/[categoryId].js
-
+import { pool } from '@/lib/db';
 // import pool from '../../../lib/db'; // Importe la connexion à la base de données
-import pool from '../../../../lib/db';
+// import pool from '../../../../lib/db';
 
 export default async function handler(req, res) {
   const { collectionId } = req.query; // Récupère l'ID de la catégorie depuis l'URL
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
     try {
       // Requête SQL pour récupérer les produits de la catégorie spécifiée
       const [rows] = await pool.query(
-        'SELECT * FROM produits_kya WHERE produits_kya.collection_id = ?',
+        'SELECT * FROM produits WHERE produits.catégorie_id = ?',
         [collectionId]
       );
       res.status(200).json(rows); // Renvoie les produits au format JSON
