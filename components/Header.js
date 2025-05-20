@@ -10,6 +10,7 @@ export default function Header() {
   const [user, setUser] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [dropdownOpen2, setDropdownOpen2] = useState(null);
   const [categories, setCategories] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [estOuvert, setEstOuvert] = useState(false);
@@ -57,6 +58,10 @@ export default function Header() {
     setDropdownOpen(dropdownOpen === menu ? null : menu);
   };
 
+  const toggleDropdown2 = (menu) => {
+    setDropdownOpen2(dropdownOpen2 === menu ? null : menu);
+  };
+
   const toggleisDropdown = (menu) => {
     setIsDrop(isDrop === menu ? null : menu);
   };
@@ -78,9 +83,9 @@ export default function Header() {
             </div> 
             {/* Desktop Menu */}
             <div className="hidden md:flex space-x-6 items-center">
-              <Link href="/kya" className="text-black text-sm hover:text-gray-400 transition duration-400">MINDSET</Link>
+              <Link href="/" className="text-black text-sm hover:text-gray-400 transition duration-400">MINDSET</Link>
               <Link href="/marques/liste" className="text-black text-sm hover:text-gray-400 transition duration-400">ORIGINES</Link>
-              <Link href="/kya" className="text-black text-sm hover:text-gray-400 transition duration-400">COLLABORATION</Link>
+              <Link href="/" className="text-black text-sm hover:text-gray-400 transition duration-400">COLLABORATION</Link>
               
               <div className="relative">
                 <button className="flex items-center text-black text-sm hover:text-gray-400 transition duration-400"
@@ -115,14 +120,14 @@ export default function Header() {
                         <Link
                           href="#"
                           className="block px-2 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                          onClick={() => setOuvert(false)}
+                          onClick={() => setEstOuvert(false)}
                         >
                           BLOG PHOTOS
                         </Link>
                         <Link
                           href="#"
                           className="block px-2 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                          onClick={() => setOuvert(false)}
+                          onClick={() => setEstOuvert(false)}
                         >
                           BLOG VIDEOS
                         </Link>
@@ -130,7 +135,7 @@ export default function Header() {
                     </div>
                   )}
               </div>
-              <Link href="/" className="text-black hover:text-gray-400 text-sm transition duration-400">GARDEN</Link>
+              <Link href="https://gardendakar.com/" className="text-black hover:text-gray-400 text-sm transition duration-400" target='blank'>GARDEN</Link>
               
               <div className="flex items-center space-x-4">
             {user ? (
@@ -236,9 +241,9 @@ export default function Header() {
         {/* Mobile Menu */}
         {isOpen && (
           <div className="md:hidden bg-white shadow-md w-full py-4">
-            <Link href="/kya" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">MINDSET</Link>
-            <Link href="/marques" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">ORIGINES</Link>
-            <Link href="/kya" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">COLLABORATION</Link>
+            <Link href="/" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">MINDSET</Link>
+            <Link href="/marques/liste" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">ORIGINES</Link>
+            <Link href="/" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">COLLABORATION</Link>
             
             <div className="px-4 py-2 items-center text-center ">
               <button onClick={() => toggleDropdown('inspiration')} className="block px-4 py-2 text-center text-sm w-full hover:bg-gray-100">
@@ -255,33 +260,37 @@ export default function Header() {
               )}
             </div>
 
-            <Link href="#" className="block px-4 py-2 text-center text-sm hover:bg-gray-100">GARDEN</Link>
+            <Link href="https://gardendakar.com/" className="block px-4 py-2 text-center text-sm hover:bg-gray-100" target='blank'>GARDEN</Link>
 
             <div className="">
             {user ? (
               <>
-                <div className="px-4 py-2 items-center text-center ">
-              <button onClick={() => toggleisDropdown('inspi')} className="block px-4 py-2 text-center text-sm w-full hover:bg-gray-100">
-              Cart ⬇️
+              <div className="px-4 py-2 items-center text-center ">
+              <button onClick={() => toggleDropdown('inspiration')} className="block px-4 py-2 text-center text-sm w-full hover:bg-gray-100">
+              🛒 Cart
               </button>
-              {isDrop === 'inspi' && (
+              {dropdownOpen === 'inspiration' && (
                 <div className="pl-4">
-                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Nouvelle collection</Link>
-                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Grande occasions</Link>
-                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">En vogue</Link>
-                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Blog Photos</Link>
-                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Blog Vidéos</Link>
+                  <Link href="#" className="block px-4 text-xs py-2 hover:bg-gray-100">Mon profil</Link>
+                  <Link href="/panier" className="block px-4 text-xs py-2 hover:bg-gray-100">Mon panier</Link>
+                  <Link href="/commandes/mes_commandes" className="block px-4 text-xs py-2 hover:bg-gray-100">Mes commandes</Link>
+                  <Link href="#" 
+                    onClick={() => {
+                      setIsDropdownOpen(false);
+                      handleLogout();
+                    }}
+                  className="block px-4 text-xs py-2 hover:bg-gray-100">Déconnexion</Link>
                 </div>
               )}
-                </div>
+            </div>
               </>
             ) : (
               <>
                 <div className="px-4 py-2 items-center text-center ">
-              <button onClick={() => toggleisDropdown('inspi')} className="block px-4 py-2 text-center text-sm w-full hover:bg-gray-100">
+              <button onClick={() => toggleDropdown('inspi')} className="block px-4 py-2 text-center text-sm w-full hover:bg-gray-100">
               CONNEXION
               </button>
-              {isDrop === 'inspi' && (
+              {dropdownOpen === 'inspi' && (
                 <div className="pl-4">
                   <Link href="/login" className="block px-4 text-xs py-2 hover:bg-gray-100">Se connecter</Link>
                   <Link href="/register" className="block px-4 text-xs py-2 hover:bg-gray-100">S'inscrire</Link>

@@ -1,13 +1,14 @@
-import cookie from "cookie";
+import { serialize } from "cookie";
 
 export default function handler(req, res) {
-  res.setHeader("Set-Cookie", cookie.serialize("token", "", {
+  const cookieOptions = {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
     sameSite: "strict",
-    expires: new Date(0),
     path: "/",
-  }));
+    maxAge: -1 // ⚡ Expire immédiatement
+  };
 
-  res.status(200).json({ message: "Déconnexion réussie" });
+  res.setHeader("Set-Cookie", serialize("token", "", cookieOptions));
+  res.status(200).json({ message: "Déconnecté avec succès" });
 }
